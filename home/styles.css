@@ -4,10 +4,14 @@
 }
 
 .site{
-  background-color: #f0f0f0;
+  background-color: #4f4e4e;
 }
 
-
+.logo{
+  height:5%;
+  width:5%;
+  margin-top: 10px;
+}
 /* #contact {
   position: absolute;
   background-color: black;

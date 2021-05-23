@@ -59,6 +59,7 @@
 #contact {
   position: absolute;
   background-color: #212121;
+  /* background-color: black; */
   background-repeat: repeat;
   background-size: cover;
   width: 100%;

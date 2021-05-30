@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medivator</title>
     <link rel="stylesheet" href="{{url_for('static', filename = 'styles/styles.css')}}">
-    <link rel="icon" type="text/css" href="images/favicon.png">
+    <link rel="icon" type="text/css" href="{{url_for('static', filename = 'images/favicon.png')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -30,11 +30,11 @@
         </center>
     </div>
     <div class="camholder">
-        <img class="cam-elev" src="{{url_for('video_feed')}}" alt="Camera Holder.jpg">
-        <!--{{url_for('static', filename = 'images/camholder3.png')}} -->
+        <img class="cam" src="{{url_for('video_feed')}}" alt="Allow Camera">
+        <img class="cam-elev" src="{{url_for('static', filename = 'images/camholder3.png')}}" alt="Camera Holder.jpg">
     </div>
     <div class="right">
-        <img src="{{url_for('static', filename = 'images/elevator.png')}}" alt="elevator.png">
+        <img class="lift" src="{{url_for('static', filename = 'images/elevator.png')}}" alt="elevator.png">
 
         <img class="model" src="{{url_for('static', filename = 'images/hospital1.png')}}" alt="Hospital.png">
     </div>
@@ -52,14 +52,14 @@
                             <hr>
                         </p>
                         <a href="https://github.com/devwadhwa01" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/github_logo.png')}}" alt="github_logo"
+                            <img src="{{url_for('static', filename = 'images/github logo.png')}}" alt="github_logo"
                                 style="margin-left: 8px;">
                         </a>
                         <a href="https://www.linkedin.com/in/dev-wadhwa/" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/linkedin_logo.png')}}" alt="linkedin_logo">
+                            <img src="{{url_for('static', filename = 'images/linkedin logo.png')}}" alt="linkedin_logo">
                         </a>
                         <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=devwadhwa01@gmail.com" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/gmail_logo.png')}}" alt="gmail_logo"
+                            <img src="{{url_for('static', filename = 'images/gmail new logo.png')}}" alt="gmail_logo"
                                 style="height: 24px;">
                         </a>
                     </div>
@@ -75,14 +75,14 @@
                             <hr>
                         </p>
                         <a href="https://github.com/ayushbansalvit" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/github_logo.png')}}" alt="github_logo"
+                            <img src="{{url_for('static', filename = 'images/github logo.png')}}" alt="github_logo"
                                 style="margin-left: 8px;">
                         </a>
                         <a href="https://www.linkedin.com/in/ayushbansal2001/" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/linkedin_logo.png')}}" alt="linkedin_logo">
+                            <img src="{{url_for('static', filename = 'images/linkedin logo.png')}}" alt="linkedin_logo">
                         </a>
                         <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=ayushabuavi@gmail.com" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/gmail_new_logo.png')}}" alt="gmail_logo"
+                            <img src="{{url_for('static', filename = 'images/gmail new logo.png')}}" alt="gmail_logo"
                                 style="height: 24px;">
                         </a>
                     </div>
@@ -98,14 +98,14 @@
                             <hr>
                         </p>
                         <a href="https://github.com/aditya-kalra28" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/github_logo.png')}}" alt="github_logo"
+                            <img src="{{url_for('static', filename = 'images/github logo.png')}}" alt="github_logo"
                                 style="margin-left: 8px;">
                         </a>
                         <a href="https://www.linkedin.com/in/adityakalra28" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/linkedin_logo.png')}}" alt="linkedin_logo">
+                            <img src="{{url_for('static', filename = 'images/linkedin logo.png')}}" alt="linkedin_logo">
                         </a>
                         <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=aditya.kalra28@gmail.com" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/gmail_new_logo.png')}}" alt="gmail_logo"
+                            <img src="{{url_for('static', filename = 'images/gmail new logo.png')}}" alt="gmail_logo"
                                 style="height: 24px;">
                         </a>
                     </div>
@@ -121,15 +121,15 @@
                             <hr>
                         </p>
                         <a href="https://github.com/sharma-anushkaa" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/github_logo.png')}}" alt="github_logo"
+                            <img src="{{url_for('static', filename = 'images/github logo.png')}}" alt="github_logo"
                                 style="margin-left: 8px;">
                         </a>
                         <a href="https://www.linkedin.com/in/anushkasharmaa/" target="_blank">
-                            <img src="{{url_for('static', filename = 'images/linkedin_logo.png')}}" alt="linkedin_logo">
+                            <img src="{{url_for('static', filename = 'images/linkedin logo.png')}}" alt="linkedin_logo">
                         </a>
                         <a href="https://mail.google.com/mail/?fs=1&tf=cm&to=sharma.anushkaa21@gmail.com"
                             target="_blank">
-                            <img src="{{url_for('static', filename = 'images/gmail_new_logo.png')}}" alt="gmail_logo"
+                            <img src="{{url_for('static', filename = 'images/gmail new logo.png')}}" alt="gmail_logo"
                                 style="height: 24px;">
                         </a>
                     </div>

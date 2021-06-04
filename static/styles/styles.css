@@ -21,10 +21,10 @@
 }
 
 .cam{
-  width:48%;
+  width:35%;
   position:absolute;
   margin-top:170px;
-  margin-left:205px;
+  margin-left:256.5px;
 }
 
 .camholder {
@@ -69,6 +69,7 @@
   position: relative;
   bottom:-175px;
   left: 65%;
+  animation: mymove 5s infinite;
 }
 
 #contact {

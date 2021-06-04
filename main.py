@@ -10,12 +10,10 @@ app = Flask(__name__)
 
 cap = cv2.VideoCapture(0)
 
-handfingers = 0
-
 
 def gen_frames():
     wCam, hCam = 640, 480
-
+    global handfingers
     folderPath = "resized"
     myList = os.listdir(folderPath)
     overlayList = []
@@ -61,7 +59,7 @@ def gen_frames():
                 print(fingers)
                 totalFingers = fingers.count(1)
                 print(f"Total fingers: {totalFingers}")
-
+                handfingers = totalFingers
                 h, w, c = overlayList[totalFingers - 1].shape
 
                 print(cv2.resize(
@@ -101,7 +99,7 @@ def listen():
 
     def respond_to_client():
         while True:
-            _data = json.dumps({"floor": random.random()})
+            _data = json.dumps({"floor": handfingers})
             yield f"id: 1\ndata: {_data}\nevent: online\n\n"
             time.sleep(0.5)
     return Response(respond_to_client(), mimetype='text/event-stream')

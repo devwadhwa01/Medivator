@@ -62,9 +62,10 @@ def gen_frames():
                 handfingers = totalFingers
                 h, w, c = overlayList[totalFingers - 1].shape
 
-                print(cv2.resize(
-                    overlayList[totalFingers - 1], (480, 640)).shape)
-                img[0:h, 0:w] = overlayList[totalFingers - 1]
+                # Print Photos on camera
+                # print(cv2.resize(
+                #     overlayList[totalFingers - 1], (480, 640)).shape)
+                # img[0:h, 0:w] = overlayList[totalFingers - 1]
 
                 # cv2.rectangle(img, (20, 225), (170, 425),
                 #               (0, 255, 0), cv2.FILLED)

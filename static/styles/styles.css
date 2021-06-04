@@ -20,6 +20,13 @@
   margin-top: 10px;
 }
 
+.cam{
+  width:48%;
+  position:absolute;
+  margin-top:170px;
+  margin-left:205px;
+}
+
 .camholder {
   width: 50%;
   height: 80%;
@@ -29,8 +36,11 @@
 }
 
 #floor_lift{
-  color: #fff;
+  color: greenyellow;
   font-size: large;
+  position:absolute;
+  margin-top:50px;
+  margin-left:385px;
 }
 
 .cam-elev {
@@ -53,7 +63,7 @@
   margin-top: 6%;
 }
 
-.lift {
+#lift {
   height: 60px;
   width: 40px;
   position: relative;

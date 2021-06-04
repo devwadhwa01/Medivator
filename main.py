@@ -1,6 +1,8 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, stream_with_context
 import cv2
 import time
+import random
+import json
 import os
 import HandTrackingModule as htm
 
@@ -70,8 +72,6 @@ def gen_frames():
                 #               (0, 255, 0), cv2.FILLED)
                 # cv2.putText(img, str(totalFingers), (45, 375), cv2.FONT_HERSHEY_PLAIN,
                 #             10, (255, 0, 0), 25)
-                handfingers = totalFingers
-
         cTime = time.time()
         fps = 1 / (cTime - pTime)
         pTime = cTime
@@ -88,13 +88,23 @@ def gen_frames():
 
 @app.route("/")
 def index():
-    floor = handfingers
-    return render_template('index.html', floor=handfingers)
+    return render_template('index.html')
 
 
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=img')
+
+
+@app.route("/listen")
+def listen():
+
+    def respond_to_client():
+        while True:
+            _data = json.dumps({"floor": random.random()})
+            yield f"id: 1\ndata: {_data}\nevent: online\n\n"
+            time.sleep(0.5)
+    return Response(respond_to_client(), mimetype='text/event-stream')
 
 
 if __name__ == "__main__":

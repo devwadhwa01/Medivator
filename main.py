@@ -6,18 +6,9 @@ import HandTrackingModule as htm
 
 app = Flask(__name__)
 
-
-@app.route("/")
-def index():
-    return render_template('index.html')
-
-
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=img')
-
-
 cap = cv2.VideoCapture(0)
+
+handfingers = 0
 
 
 def gen_frames():
@@ -28,10 +19,10 @@ def gen_frames():
     overlayList = []
     for imPath in myList:
         image = cv2.imread(f"{folderPath}/{imPath}")
-        # print(image)
+        print(image)
         overlayList.append(image)
 
-    # print(overlayList)
+    print(overlayList)
     pTime = 0
 
     detector = htm.handDetector(detectionCon=0.75)
@@ -59,23 +50,27 @@ def gen_frames():
 
             # 4 Fingers
             for id in range(1, 5):
+
                 if lmList[tipIds[id]][2] < lmList[tipIds[id] - 2][2]:
                     fingers.append(1)
                 else:
                     fingers.append(0)
 
-            # print(fingers)
-            totalFingers = fingers.count(1)
-            print(f"Total fingers: {totalFingers}")
+                print(fingers)
+                totalFingers = fingers.count(1)
+                print(f"Total fingers: {totalFingers}")
 
-            h, w, c = overlayList[totalFingers - 1].shape
+                h, w, c = overlayList[totalFingers - 1].shape
 
-            # print(cv2.resize(overlayList[totalFingers - 1],(480,640)).shape)
-            img[0:h, 0:w] = overlayList[totalFingers - 1]
+                print(cv2.resize(
+                    overlayList[totalFingers - 1], (480, 640)).shape)
+                img[0:h, 0:w] = overlayList[totalFingers - 1]
 
-            cv2.rectangle(img, (20, 225), (170, 425), (0, 255, 0), cv2.FILLED)
-            cv2.putText(img, str(totalFingers), (45, 375), cv2.FONT_HERSHEY_PLAIN,
-                        10, (255, 0, 0), 25)
+                # cv2.rectangle(img, (20, 225), (170, 425),
+                #               (0, 255, 0), cv2.FILLED)
+                # cv2.putText(img, str(totalFingers), (45, 375), cv2.FONT_HERSHEY_PLAIN,
+                #             10, (255, 0, 0), 25)
+                handfingers = totalFingers
 
         cTime = time.time()
         fps = 1 / (cTime - pTime)
@@ -89,6 +84,17 @@ def gen_frames():
 
         yield (b'--img\r\n'b'Content-Type: image/jpeg\r\n\r\n' + img + b'\r\n')
         cv2.waitKey(1)
+
+
+@app.route("/")
+def index():
+    floor = handfingers
+    return render_template('index.html', floor=handfingers)
+
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=img')
 
 
 if __name__ == "__main__":
